@@ -1,0 +1,43 @@
+Descarga de la libreria de editores
+
+ La libreria de editores esta disponible desde maven o bien puedes decargarte directamente el jar.
+
+ Las distintas versiones de jar estan disponibles en {{http://maven2.chuidiang.com/com/chuidiang/ChuidiangEditores/}}. Selecciona el numero de version deseado y luego descarga el .jar. En el mismo sitio tambien tienes disponible un jar con los fuentes.
+
+Repositorio de fuentes
+
+ Tienes disponbiles los fuentes en el repositorio subversion {{http://code.google.com/p/chuidiang-editores/source/checkout}}
+
+Descarga desde maven2
+
+ Para poder usar la libreria de editores en tus proyectos maven, en el pom.xml debes anadir la url del repositorio y la dependencia
+
++---
+<project>
+   ...
+   <repositories>
+      <repository>
+         <id>com.chuidiang</id>
+         <name>com.chuidiang</name>
+         <layout>default</layout>
+         <url>http://maven2.chuidiang.com</url>
+         <snapshots>
+            <enabled>false</enabled>
+         </snapshots>
+      </repository>
+      ...
+   </repositories>
+   ...
+   <dependencies>
+      <dependency>
+         <groupId>com.chuidiang</groupId>
+	 <artifactId>ChuidiangEditores</artifactId>
+         <!--Pon la version que corresponda-->
+         <version>0.1.0</version>
+         <scope>compile</scope>
+      </dependency>
+      ...
+   </dependencies>
+   ...
+</project>
++---
