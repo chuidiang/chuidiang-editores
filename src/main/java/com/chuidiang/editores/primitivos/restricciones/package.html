@@ -1,0 +1,37 @@
+<body>
+<p>
+Clases que imponen alg&uacute;n tipo de restricci&oacute;n a los posibles valores
+que puede meter el usuario en un editor.
+</p>
+
+<p>
+Las clases en este paquete implementan la interface <code>InterfaceRestriccion</code>
+que simplemente tiene un m&eacute;todo al que se le pasa el valor recogido del
+editor y devuelve <code>true</code> o <code>false</code> seg&uacute;n dicho valor cumpla o no con la
+restricci&oacute;n
+</p>
+
+<p>
+Est&aacute;n implementadas las siguientes restricciones:
+</p>
+
+<li>
+<ul>
+<code>RestriccionLongitudString</code> : Aplicable a editores de String.
+La cadena pasa la restricci&oacute;n si es de una longitud menor que un n&uacute;mero dado.
+</ul>
+<ul>
+<code>RestriccionMascaraString</code> : Aplicable a editores de String.
+La cadena pasa la restricci&oacute;n si es cumple un determinado patr&oacute;n, como
+por ejemplo \.*hola\.* (expresi&oacute;n regex)
+</ul>
+<ul>
+<code>RestriccionObjectEquals</code> : Aplicable a cualquier editor. El
+valor pasa si es <code>equals()</code> a otro.
+</ul>
+<ul>
+<code>RestriccionRango</code> : Aplicable a editores num&eacute;ricos. El n&uacute;mero
+pasa la restricci&oacute;n si est&aacute; entre un m&iacute;nimo y un m&aacute;ximo.
+</ul>
+</li>
+</body>

@@ -1,7 +1,7 @@
 package com.chuidiang.editores.primitivos.restricciones;
 
 /**
- * Interface com�n para poner restricciones a un valor de un Editor.<br>
+ * Interface comun para poner restricciones a un valor de un Editor.<br>
  */
 public interface InterfaceRestriccion<Tipo>
 {
@@ -15,7 +15,7 @@ public interface InterfaceRestriccion<Tipo>
     * @param error Un StringBuffer en el que la clase dejara el texto de error
     *        si se produce.<br>
     *
-    * @return true si el valor pasa la restricci�n.<br>
+    * @return true si el valor pasa la restriccion.<br>
     */
    public boolean pasaRestriccion( 
       Tipo valor,

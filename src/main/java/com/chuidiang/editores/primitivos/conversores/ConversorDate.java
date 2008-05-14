@@ -1,12 +1,8 @@
 package com.chuidiang.editores.primitivos.conversores;
 
 
-import org.apache.log4j.Logger;
-
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import java.util.Calendar;
 import java.util.Date;
 
@@ -44,7 +40,7 @@ public class ConversorDate
 
    /**
     * Recoge la cadena y trata de convertirla en Date.<br>
-    * Utiliza la clase SimpleDateFormat para la conversi�n.<br>
+    * Utiliza la clase SimpleDateFormat para la conversion.<br>
     * Lanza una ParseException si no se puede convertir la cadena a una
     * fecha/hora
     *
