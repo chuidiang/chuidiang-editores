@@ -21,13 +21,13 @@ import com.chuidiang.editores.utilidades.HashtableUtil;
 
 
 /**
- * Panel que admite y coloca autom�ticamente varios editores.<br>
- * Al a�adir un editor que implemente InterfaceEdicionDatos, se pasa tambi�n
- * una clave y una etiqueta. El panel asociar� la clave con el editor y lo
- * mostrar� precedido de la etiqueta en cuesti�n.<br>
+ * Panel que admite y coloca automaticamente varios editores.<br>
+ * Al anadir un editor que implemente InterfaceEdicionDatos, se pasa tambien
+ * una clave y una etiqueta. El panel asociara la clave con el editor y lo
+ * mostrara precedido de la etiqueta en cuestion.<br>
  * El panel en su setDato() y getDato() admite Hashtables. Cada dato del
- * Hashtable ir� al editor cuya clave coincida. Si un editor no tiene ninguna
- * clave asociada, se le pasar� el Hashtable entero.<br>
+ * Hashtable ira al editor cuya clave coincida. Si un editor no tiene ninguna
+ * clave asociada, se le pasara el Hashtable entero.<br>
  */
 public class EditorPanelGeneral
         extends JPanel
@@ -177,8 +177,6 @@ public class EditorPanelGeneral
     * en el return.<br>
     * Si el dato que se le pasa no es un Hashtable, crea uno nuevo, lo rellena
     * con los datos y lo devuelve.
-    *
-    * @param dato Si dato es Hashtable, lo rellena con los datos del editor.<br>
     *
     * @return Devuelve un Hashtable con los campos recogidos del editor.<br>
     */

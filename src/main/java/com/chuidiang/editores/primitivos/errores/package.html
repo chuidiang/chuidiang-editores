@@ -1,0 +1,24 @@
+<body>
+<p>En este paquete est&aacute;n las clases que producen alg&uacute;n tipo de aviso
+cuando el usuario introduce en un editor un valor incorrecto.</p>
+<p>Todos las clases de tratamiento de error heredan de 
+<code>InterfaceTratamientoError</code>, que tiene dos m&eacute;todos.</p>
+<li>
+<ul><code>correcto( Editor&lt;Tipo&gt; editor )</code>: en el que se le indica
+que el contenido del editor es correcto y debe eliminar la marca o aviso
+que le haya puesto</ul>
+<ul><code>tomaError(String error, InterfaceEdicionDatos&lt;Tipo&gt; editor )</code>
+ donde se le indica que el editor tiene un valor incorrecto y se le pasa un String
+ con el motivo por el que no es correcto. La clase debe marcar/avisar de que
+ dicho editor no tiene un valor correcto</ul>
+</li> En uno se 
+<p>En este paquete hay varias clases que implementan estan interface:</p>
+<li>
+<ul><code>ErrorConAviso</code>: Muestra una ventana de aviso con el error.</ul> 
+<ul><code>ErrorConColor</code>: Pone el background del editor de un color
+para indicar el fallo, por ejemplo rojo.</ul>
+<li>
+<p>Adicionalmente hay una clase Verificador, que pas&aacute;ndola a cualquier
+<code>Editor</code> impide que pueda perder el foco hasta que el valor del
+editor sea correcto</p>
+</body> 

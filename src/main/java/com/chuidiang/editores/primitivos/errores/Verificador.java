@@ -8,7 +8,11 @@ import com.chuidiang.editores.primitivos.Editor;
 
 
 /**
- * COMENTARIO.<br>
+ * Hace que un editor primitivo no pueda perder el foco hasta que el
+ * dato sea correcto.<br>
+ * Pasando este Verificador a cualquier Editor que herede de 
+ * <code>Editor</code>, el Editor no perderá el foco hasta que el
+ * dato escrito en el sea correcto.
  */
 public class Verificador<Tipo>
         extends InputVerifier
@@ -16,7 +20,7 @@ public class Verificador<Tipo>
    //~ Variables de instancia --------------------------------------------------
 
    /**
-    * Clase a la que se llamar� cuando se produzca un error en la entrada de datos.<br>
+    * Clase a la que se llamara cuando se produzca un error en la entrada de datos.<br>
     * Esta clase puede poner el editor de color rojo, sacar una ventana de
     * aviso, etc.
     */
@@ -27,7 +31,7 @@ public class Verificador<Tipo>
    /**
     * Crea un nuevo Verificador
     *
-    * @param tratamientoError Clase a la que llamar� cuando se produzca alguna
+    * @param tratamientoError Clase a la que llamara cuando se produzca alguna
     *        entrada erronea por parte del operador
     */
    public Verificador( InterfaceTratamientoError<Tipo> tratamientoError )
@@ -68,6 +72,9 @@ public class Verificador<Tipo>
     */
    public boolean verify( JComponent input )
    {
+       if (!(input instanceof Editor))
+           return true;
+           
       Editor<Tipo> editor = (Editor<Tipo>)input;
       StringBuffer error=new StringBuffer();
       

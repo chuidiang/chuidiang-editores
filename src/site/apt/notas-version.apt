@@ -1,0 +1,11 @@
+Notas versión 0.2.0
+
+  * Añadidos comentarios en el código y en javadoc.
+  
+  * Algunos test de JUnit.
+  
+  * La clase <Editor> permite ahora perder el foco si el valor no es correcto.
+
+Notas versión 0.1.0
+
+ * Primera versión.

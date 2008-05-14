@@ -1,8 +1,12 @@
 Libreria editores
 
- La intencion de esta libreria es proporcionar una serie de componentes Swing que faciliten la creacion de formularios.
+ La intencion de esta libreria es proporcionar una serie de componentes Swing
+ que faciliten la creacion de formularios.
 
- En ella hay algunos editores basicos, como un EditorNumerico, EditorDate, EditorLatitud, EditorLongitud, etc. Tambien hay un panel que permite construir, basandose en los editores anteriores un formulario. A continuacion tienes un trozo de codigo de como usarlo.
+ En ella hay algunos editores basicos, como un EditorNumerico, EditorDate, 
+ EditorLatitud, EditorLongitud, etc. Tambien hay un panel que permite 
+ construir, basandose en los editores anteriores un formulario. A 
+ continuacion tienes un trozo de codigo de como usarlo.
 
 +------------------------------------------
 package com.chuidiang.pruebas_editores;
@@ -68,4 +72,5 @@ public class PruebaEditorPanelGeneral {
 }
 +------------------------------------------
 
- Cualquier duda o sugerencia puedes dejarla en el foro {{http://foro.chuidiang.com}}
+ Cualquier duda o sugerencia puedes dejarla en el foro 
+ {{http://foro.chuidiang.com}}

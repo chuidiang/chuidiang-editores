@@ -9,9 +9,10 @@ import com.chuidiang.editores.primitivos.Editor;
 
 
 /**
- * @author Administrador
+ * Cambia el color de fondo del editor cuando el valor es incorrecto.
+ * @author Chuidiang
  */
-public class ErrorConColor implements InterfaceTratamientoError
+public class ErrorConColor<Tipo> implements InterfaceTratamientoError<Tipo>
 {
     /**
      * Creates a new instance of ErrorConColor
@@ -22,29 +23,29 @@ public class ErrorConColor implements InterfaceTratamientoError
         this.erroneo = erroneo;
     }
 
-    /** DOCUMENT ME! */
+    /** Color de fondo por defecto para el editor, el que se supone
+     * que se muestra cuando no hay error en el editor */
     private Color defecto;
 
-    /** DOCUMENT ME! */
+    /** Color de fondo que mostrara el editor cuando tenga un valor
+     * incorrecto. */
     private Color erroneo;
 
     /**
-     * DOCUMENT ME!
-     *
-     * @param editor DOCUMENT ME!
+     * Pone el color por defecto en el editor.
      */
-    public void correcto(Editor editor)
+    public void correcto(Editor<Tipo> editor)
     {
         editor.setBackground(defecto);
     }
 
     /**
-     * DOCUMENT ME!
-     *
-     * @param error DOCUMENT ME!
-     * @param editor DOCUMENT ME!
+     * Pone el color erroneo como background del editor
+     * @param error : Texto explicativo de por que el editor tiene un
+     * valor incorrecto. Se ignora.
+     * @param editor : El editor con un valor incorrecto.
      */
-    public void tomaError(String error, InterfaceEdicionDatos editor)
+    public void tomaError(String error, InterfaceEdicionDatos<Tipo> editor)
     {
     	if (editor instanceof Component)
         ((Component)editor).setBackground(erroneo);

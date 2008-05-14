@@ -2,7 +2,6 @@ package com.chuidiang.editores.primitivos.errores;
 
 import java.awt.Component;
 
-
 import javax.swing.JOptionPane;
 
 import com.chuidiang.editores.comun.InterfaceEdicionDatos;

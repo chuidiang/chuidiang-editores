@@ -27,6 +27,7 @@
 		<menu name="Librer&iacute;a Editores">
 			<item name="Introducci&oacute;n" href="index.html" />
 			<item name="Descarga" href="download.html" />
+			<item name="Notas de versi&oacute;n" href="notas-version.html"/>
 		</menu>
 
 		<menu name="Informacion">
