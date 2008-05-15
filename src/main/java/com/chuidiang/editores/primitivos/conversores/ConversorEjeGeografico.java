@@ -9,7 +9,7 @@ import com.chuidiang.editores.matematicas.angulos.GradosConDecimales;
 
 
 /**
- * Convierte un Double que representa una latitud en grados a String y
+ * Convierte un <code>Double</code> que representa una latitud en grados a String y
  * viceversa.<br>
  */
 public abstract class ConversorEjeGeografico

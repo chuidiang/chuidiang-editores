@@ -1,104 +1,96 @@
 package com.chuidiang.editores.primitivos.restricciones;
 
+import java.text.MessageFormat;
 
 import org.apache.log4j.Logger;
 
 import com.chuidiang.editores.utilidades.CadenaCaracteresEditoresDeprecated;
 
-
 /**
  * Modelo de filtro para strings.<br>
- * Comprueba que el String cumple un patr�n con  e ?, similar al del comando
- * ls de unix para listar ficheros.
+ * Comprueba que el String cumple un patron con e ?, similar al del comando ls
+ * de unix para listar ficheros.
  */
-public class RestriccionMascaraString
-        implements InterfaceRestriccion<String>
-{
-   //~ Variables/Inicializadores estaticos -------------------------------------
+public class RestriccionMascaraString implements InterfaceRestriccion<String> {
+    // ~ Variables/Inicializadores estaticos
+    // -------------------------------------
 
-   /** Caracter  para el mascara */
-   public static final String ASTERISCO = new String( "*" );
+    /** Mensaje de warning */
+    private static final String EL_ELEMENTO_PASADO_NO_ES_STRING = "El elemento pasado no es String";
 
-   /** Caracter interrogante para el mascara */
-   public static final String INTERROGANTE = new String( "?" );
+    /** Caracter para el mascara */
+    public static final String ASTERISCO = new String("*");
 
-   /**
-    * Prefijo que hay que insertar delante del asterisco y del  interrogante
-    * para que funcione String.matches()
-    */
-   public static final String PREFIJO = new String( "." );
+    /** Caracter interrogante para el mascara */
+    public static final String INTERROGANTE = new String("?");
 
-   //~ Variables de instancia --------------------------------------------------
+    /**
+     * Prefijo que hay que insertar delante del asterisco y del interrogante
+     * para que funcione String.matches()
+     */
+    public static final String PREFIJO = new String(".");
 
-   /** Logger para la clase */
-   private Logger log = Logger.getLogger( RestriccionMascaraString.class );
+    // ~ Variables de instancia
+    // --------------------------------------------------
 
-   /**
-    * Patron con el que se compara para.<br>
-    * El patr�n es con  e ?. Por defecto todo pasa el filtro
-    */
-   private String mascara = null;
+    /** Logger para la clase */
+    private Logger log = Logger.getLogger(RestriccionMascaraString.class);
 
-   //~ Metodos -----------------------------------------------------------------
+    /**
+     * Patron con el que se compara para.<br>
+     * El patron es con e ?. Por defecto todo pasa el filtro
+     */
+    private String mascara = null;
 
-   /**
-    * Se le pasa la m�scara de filtrado.<br>
-    * La m�scara es un String con  e ?. Si es null, el filtro queda
-    * desactivado y cualquier cadena lo pasa.
-    *
-    * @param mascara La m�scara
-    */
-   public void setMascara( String mascara )
-   {
-      this.mascara = mascara;
-   }
+    // ~ Metodos
+    // -----------------------------------------------------------------
 
-   /**
-    * Devuelve la m�scara con la que se est� filtrando.<br>
-    *
-    * @return M�scara
-    */
-   public String getMascara(  )
-   {
-      return mascara;
-   }
+    /**
+     * Se le pasa la mascara de filtrado.<br>
+     * La mascara es un String con e ?. Si es null, el filtro queda desactivado
+     * y cualquier cadena lo pasa.
+     * 
+     * @param mascara
+     *            La mascara
+     */
+    public void setMascara(String mascara) {
+        this.mascara = mascara;
+    }
 
-   /**
-    * @see com.chuidiang.editores.filtros.InterfaceModeloFiltroGenerico#pasaFiltro(java.lang.Object)
-    */
-   public boolean pasaRestriccion( 
-      String cadena,
-      StringBuffer errores )
-   {
-      if( !( cadena instanceof String ) )
-      {
-         log.warn( "El elemento pasado no es String" );
-         errores.delete( 
-            0,
-            errores.length(  ) );
-         errores.append( "El elemento pasado no es String" );
+    /**
+     * Devuelve la mascara con la que se esta filtrando.<br>
+     * 
+     * @return Mascara
+     */
+    public String getMascara() {
+        return mascara;
+    }
 
-         return false;
-      }
+    /**
+     * @see com.chuidiang.editores.filtros.InterfaceModeloFiltroGenerico#pasaFiltro(java.lang.Object)
+     */
+    public boolean pasaRestriccion(String cadena, StringBuffer errores) {
+        if (!(cadena instanceof String)) {
+            log.warn(EL_ELEMENTO_PASADO_NO_ES_STRING);
+            errores.delete(0, errores.length());
+            errores.append(EL_ELEMENTO_PASADO_NO_ES_STRING);
 
-      if( mascara == null )
-      {
-         return true;
-      }
+            return false;
+        }
 
-      if( CadenaCaracteresEditoresDeprecated.pasaFiltro( 
-            (String)cadena,
-            mascara ) )
-      {
-         return true;
-      }
+        if (mascara == null) {
+            return true;
+        }
 
-      errores.delete( 
-         0,
-         errores.length(  ) );
-      errores.append( 
-         "La cadena -" + cadena + "- no cumple el mascara -" + mascara + "-" );
+        if (CadenaCaracteresEditoresDeprecated.pasaFiltro((String) cadena,
+                mascara)) {
+            return true;
+        }
 
-      return false;
-   }
+        errores.delete(0, errores.length());
+        errores.append(MessageFormat.format(
+                "La cadena -{0}- no cumple el patron -{1}-", cadena, mascara));
+
+        return false;
+    }
 }

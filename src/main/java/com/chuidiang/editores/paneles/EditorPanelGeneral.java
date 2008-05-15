@@ -108,11 +108,11 @@ public class EditorPanelGeneral
    }
 
    /**
-    * Crea un panel vac�o con tantas columnas como se le indiquen.
+    * Crea un panel vacio con tantas columnas como se le indiquen.
     * numeroColumnas debe valer al menos 1 y cualquier valor inferior se
-    * considerar� como 1.
+    * considerara como 1.
     *
-    * @param numeroColumnas N�mero de columnas que se quieren en el panel.<br>
+    * @param numeroColumnas Numero de columnas que se quieren en el panel.<br>
     */
    public EditorPanelGeneral( int numeroColumnas )
    {
@@ -249,16 +249,16 @@ public class EditorPanelGeneral
    }
 
    /**
-    * Anhade el editor que se le pasa en la siguiente posici�n. La clave es la
+    * Anhade el editor que se le pasa en la siguiente posicion. La clave es la
     * clave del Hashtable correspondiente al dato que se le debe pasar al
     * editor. Cuando se llame al tomaDatos() de esta clase, se extraera del
     * Hashtable el valor correspondiente a dicha clave y se le pasara al
-    * editor. Si el editor es null, se dejar� un hueco en el panel y se pasar�
-    * a la siguiente posici�n. Si el editor no implementa
-    * InterfaceEdicionDatos, simplemente se dibujar�, pero no se le pasar� ni
-    * se le pedir� ning�n dato. El texto es una etiqueta que se colocar�
-    * delante del editor que se pasa. Si es null, se colocar� el editor, pero
-    * sin etiqueta delante. Si la clave es null, se pasar� al editor el
+    * editor. Si el editor es null, se dejara un hueco en el panel y se pasar�
+    * a la siguiente posicion. Si el editor no implementa
+    * InterfaceEdicionDatos, simplemente se dibujara, pero no se le pasara ni
+    * se le pedira ningun dato. El texto es una etiqueta que se colocara
+    * delante del editor que se pasa. Si es null, se colocara el editor, pero
+    * sin etiqueta delante. Si la clave es null, se pasara al editor el
     * Hashtable completo que se le pasa en el tomaDatos()
     *
     * @param clave Clave del editor.<br>
@@ -285,7 +285,7 @@ public class EditorPanelGeneral
 
       if( ( clave == null ) && ( texto == null ) && ( editor == null ) )
       {
-         log.warn( "Todos los par�metros de entrada son null" );
+         log.warn( "Todos los parametros de entrada son null" );
 
          return;
       }
@@ -314,10 +314,10 @@ public class EditorPanelGeneral
    }
 
    /**
-    * Anhade el editor que se le pasa en la siguiente posici�n. El campo
+    * Anhade el editor que se le pasa en la siguiente posicion. El campo
     * obligatorio indica si dicho editor es de relleno obligatorio, con lo que
-    * sus campos se dibujar�n de otro color. El campo editable de momento no
-    * est� implementado. El resto de los campos se pasan tal cual al m�todo
+    * sus campos se dibujaran de otro color. El campo editable de momento no
+    * esta implementado. El resto de los campos se pasan tal cual al metodo
     * anhadeEditor (clave, texto, editor)
     *
     * @param clave Clave del editor.<br>
@@ -333,7 +333,7 @@ public class EditorPanelGeneral
       boolean editable,
       Component editor )
    {
-      // Si el editor a�adido es de relleno obligatorio, se a�ade a la lista
+      // Si el editor anadido es de relleno obligatorio, se anade a la lista
       // de editores obligatorios y se le pasa el gestor de componentes
       // obligatorios (que cambia su color).
       if( obligatorio )
@@ -354,14 +354,14 @@ public class EditorPanelGeneral
          }
       }
 
-      // Si el editor se puede modificar, se a�ade en la lista de editores
+      // Si el editor se puede modificar, se anade en la lista de editores
       // modificables por el operador.
       if( editable && ( editor != null ) )
       {
          editoresEditables.add( editor );
       }
 
-      // Si el editor no es editable, no se a�ade en la lista y adem�s
+      // Si el editor no es editable, no se anade en la lista y ademas
       // se deshabilita.
       if( ( !editable ) && ( editor != null ) )
       {

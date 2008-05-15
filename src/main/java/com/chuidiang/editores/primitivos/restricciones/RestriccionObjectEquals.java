@@ -44,7 +44,7 @@ public class RestriccionObjectEquals
       Object valor,
       StringBuffer error )
    {
-      // Si ambos son null o exactamente iguales, se pasa la restricci�n
+      // Si ambos son null o exactamente iguales, se pasa la restriccion
       if( valor == valorValido )
       {
          return true;

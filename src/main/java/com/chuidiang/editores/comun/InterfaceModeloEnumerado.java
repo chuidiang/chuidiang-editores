@@ -15,7 +15,7 @@ public interface InterfaceModeloEnumerado<Clave, Valor>
 
    /**
     * Fija la clave seleccionada.<br>
-    * El objeto correspondiente a esta clave ser� el que se vea en el ComboBox
+    * El objeto correspondiente a esta clave sera el que se vea en el ComboBox
     * Si es null, el ComboBox se vacia.
     *
     * @param claveSeleccionado Clave seleecionada o null.<br>
@@ -31,9 +31,9 @@ public interface InterfaceModeloEnumerado<Clave, Valor>
 
    /**
     * Se le pasa un modelo en forma de ComboBoxModel y lo guarda.<br>
-    * Las claves ser�n Integer y ser�n las que se devuelvan y usen en
-    * setClaveSeleccionado() y getClaveSeleccionado(). Los valores ser�n los
-    * que se obtengan con el m�todo get() y lo que se vea en el ComboBox.
+    * Las claves seran Integer y seran las que se devuelvan y usen en
+    * setClaveSeleccionado() y getClaveSeleccionado(). Los valores seran los
+    * que se obtengan con el metodo get() y lo que se vea en el ComboBox.
     *
     * @param modelo Un modelo en forma de ComboBoxModel.<br>
     */
@@ -41,9 +41,9 @@ public interface InterfaceModeloEnumerado<Clave, Valor>
 
    /**
     * Se le pasa un modelo en forma de Hastable y lo guarda.<br>
-    * Las claves ser�n las que se devuelvan y usen en setClaveSeleccionado() y
-    * getClaveSeleccionado(). Los valores ser�n los que se obtengan con el
-    * m�todo get() y lo que se vea en el ComboBox.
+    * Las claves seran las que se devuelvan y usen en setClaveSeleccionado() y
+    * getClaveSeleccionado(). Los valores seran los que se obtengan con el
+    * metodo get() y lo que se vea en el ComboBox.
     *
     * @param modelo Un modelo en forma de Hastable.<br>
     */
