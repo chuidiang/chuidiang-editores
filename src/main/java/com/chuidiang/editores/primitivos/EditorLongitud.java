@@ -13,7 +13,7 @@ import com.chuidiang.editores.primitivos.restricciones.RestriccionRango;
  * Editor de Longitud.<br>
  */
 public class EditorLongitud
-        extends Editor
+        extends Editor<Number>
 {
    //~ Variables/Inicializadores estaticos -------------------------------------
 

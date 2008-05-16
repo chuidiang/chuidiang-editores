@@ -6,7 +6,7 @@ import java.util.Hashtable;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import com.chuidiang.editores.paneles.EditorPanelGeneral;
+import com.chuidiang.editores.paneles.EditorPanelHashtable;
 import com.chuidiang.editores.primitivos.EditorBooleano;
 import com.chuidiang.editores.primitivos.EditorComboBox;
 import com.chuidiang.editores.primitivos.EditorDate;
@@ -22,7 +22,7 @@ public class PruebaEditorPanelGeneral {
     public static void main(String[] args) {
 
         // Construccion del editor
-        EditorPanelGeneral panel = new EditorPanelGeneral();
+        EditorPanelHashtable panel = new EditorPanelHashtable();
         panel.anhadeEditor("entero", "el entero", new EditorNumerico(-10.0,
                 10.0));
         panel.anhadeEditor("booleano", "el flag", new EditorBooleano());

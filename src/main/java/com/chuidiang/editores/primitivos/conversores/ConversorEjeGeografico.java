@@ -9,8 +9,8 @@ import com.chuidiang.editores.matematicas.angulos.GradosConDecimales;
 
 
 /**
- * Convierte un <code>Double</code> que representa una latitud en grados a String y
- * viceversa.<br>
+ * Convierte un <code>Double</code> que representa una latitud en grados 
+ * a String y viceversa.<br>
  */
 public abstract class ConversorEjeGeografico
         implements InterfaceConversorString<Number>

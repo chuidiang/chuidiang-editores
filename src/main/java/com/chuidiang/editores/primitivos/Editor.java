@@ -67,7 +67,7 @@ public class Editor<Tipo> extends JFormattedTextField implements
      * Crea un nuevo objeto de la clase Editor.<br>
      * 
      * @param mascara
-     *            M�scara que se desea para el editor tal cual la entiende
+     *            Mascara que se desea para el editor tal cual la entiende
      *            MaskFormatter.<br>
      */
     public Editor(String mascara) throws ParseException {
@@ -123,7 +123,8 @@ public class Editor<Tipo> extends JFormattedTextField implements
                 this.setText(texto);
 
                 // Se llama al inputVerifier para eliminar el error si lo habia.
-                this.getInputVerifier().shouldYieldFocus(this);
+                if (this.getInputVerifier()!=null)
+                    this.getInputVerifier().shouldYieldFocus(this);
             }
         } else {
             this.setText(valor.toString());

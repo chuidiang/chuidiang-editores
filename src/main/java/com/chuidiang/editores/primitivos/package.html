@@ -1,0 +1,19 @@
+<body>
+<p> Editores de tipos primitivos de Java, como Number, Date, String, etc.
+</p>
+<p> La clase b&aacute;sica de este paquete es <code>Editor</code>. Esta clase
+admite tres interfaces: <code>InterfaceConversorString</code>, <code>
+InterfaceTratamientoError</code> e <code>InterfaceRestriccion</code>. El
+primero es el encargado de convertir el String escrito en el editor a uno de
+los tipos de datos de Java. El segundo indica al editor c&oacute;mo mostrar un
+posible error que haya cometido el usuario al teclear. El tercero verifica
+que el dato Java cumple ciertas restriccion, como por ejemplo estar entre
+un valor m&iacute;nimo y m&aacute;ximo.
+</p>
+<p> Usando esa clase <code>Editor</code> e implementaciones concretas de
+las tres interfaces en los subpaquetes <code>conversores</code>, <code>
+errores</code> y <code>restricciones</code> se construyen varios editores
+concretos, como <code>EditorDate</code> para fecha/hora, <code>EditorLatitud
+</code> para latitudes geogr&aacute;ficas, etc.
+</p>
+</body>

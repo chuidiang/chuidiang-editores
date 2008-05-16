@@ -10,7 +10,7 @@ import java.util.Hashtable;
 public class HashtableUtil
 {
 	/** Mete todos los datos de h2 en h1.<br>
-	 * El m�todo no vac�a hashDestino, por lo que si se quiere una copia
+	 * El metodo no vacia hashDestino, por lo que si se quiere una copia
 	 * exacta debe vaciarse antes de llamar. */
 	public static void copiaHashtable(Hashtable hashDestino, Hashtable hashOrigen)
 	{

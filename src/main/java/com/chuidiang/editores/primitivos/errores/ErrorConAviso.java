@@ -12,8 +12,8 @@ import com.chuidiang.editores.primitivos.Editor;
  * Clase de error que saca un aviso en pantalla cuando se produce.<br>
  *
  */
-public class ErrorConAviso
-        implements InterfaceTratamientoError
+public class ErrorConAviso<Tipo>
+        implements InterfaceTratamientoError<Tipo>
 {
    //~ Metodos -----------------------------------------------------------------
 
@@ -22,7 +22,7 @@ public class ErrorConAviso
     *
     * @param editor El editor
     */
-   public void correcto( Editor editor )
+   public void correcto( Editor<Tipo> editor )
    {
    }
 
@@ -30,11 +30,11 @@ public class ErrorConAviso
     * Muestra un  mensaje de error indicando que el valor en el editor no es correcto
     *
     * @param error El error que se ha producido
-    * @param editor El editor en el que est� el error.
+    * @param editor El editor en el que esta el error.
     */
    public void tomaError( 
       String error,
-      InterfaceEdicionDatos editor )
+      InterfaceEdicionDatos<Tipo> editor )
    {
    	if (editor instanceof Component)
       JOptionPane.showMessageDialog( 

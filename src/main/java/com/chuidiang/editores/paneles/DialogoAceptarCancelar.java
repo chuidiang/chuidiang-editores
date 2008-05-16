@@ -35,9 +35,9 @@ import com.chuidiang.editores.primitivos.errores.InterfaceTratamientoError;
  * Tienen un hueco para meter dentro un panel que implemente
  * InterfaceEdicionDatos.
  */
-public class AceptarCancelarEdicion
+public class DialogoAceptarCancelar<Tipo>
         extends JDialog
-        implements InterfaceAceptarCancelarEdicion
+        implements InterfaceAceptarCancelarEdicion<Tipo>
 {
    //~ Variables/Inicializadores estaticos -------------------------------------
 
@@ -53,7 +53,7 @@ public class AceptarCancelarEdicion
    //~ Variables de instancia --------------------------------------------------
 
    /** Logger para la clase */
-   private Logger log = Logger.getLogger( AceptarCancelarEdicion.class );
+   private Logger log = Logger.getLogger( DialogoAceptarCancelar.class );
 
    /** Atributo de la Clase. Boton de Aceptar. */
    protected JButton JBuAceptar = null;
@@ -63,15 +63,15 @@ public class AceptarCancelarEdicion
 
    /**
     * Panel interno a la ventana de Aceptar/Cancelar.<br>
-    * El componenteInterno deber�a ser adem�s un Component de java
+    * El componenteInterno deberia ser ademas un Component de java
     */
-   private InterfaceEdicionDatos componenteInterno = null;
+   private InterfaceEdicionDatos<Tipo> componenteInterno = null;
 
    /** Lista de suscriptores al boton de aceptar */
-   protected LinkedList suscriptoresAceptar = new LinkedList(  );
+   protected LinkedList<ActionListener> suscriptoresAceptar = new LinkedList<ActionListener>(  );
 
    /** Lista de suscriptores al boton de cancelar */
-   protected LinkedList suscriptoresCancelar = new LinkedList(  );
+   protected LinkedList<ActionListener> suscriptoresCancelar = new LinkedList<ActionListener>(  );
 
    /**
     * Indica si la ventana se ocultar� acutom�ticamente cuando se pulse aceptar
@@ -111,14 +111,14 @@ public class AceptarCancelarEdicion
                {
                   tratamientoError.tomaError( 
                      error.toString(  ),
-                     AceptarCancelarEdicion.this );
+                     DialogoAceptarCancelar.this );
                }
             }
          }
       };
 
    /** Clase para el tratamiento de errores */
-   private InterfaceTratamientoError tratamientoError = new ErrorConAviso(  );
+   private InterfaceTratamientoError<Tipo> tratamientoError = new ErrorConAviso<Tipo>(  );
 
    /**
     * Accion del boton de cancelar.<br>
@@ -152,7 +152,7 @@ public class AceptarCancelarEdicion
     * Constructor sin parametros,debe ser invocado previamente al m�todo
     * tomaComponente.
     */
-   public AceptarCancelarEdicion(  )
+   public DialogoAceptarCancelar(  )
    {
       inicializar(  );
    }
@@ -162,7 +162,7 @@ public class AceptarCancelarEdicion
     *
     * @param padre Dialog padre de esta ventana.<br>
     */
-   public AceptarCancelarEdicion( Dialog padre )
+   public DialogoAceptarCancelar( Dialog padre )
    {
       super( padre );
       inicializar(  );
@@ -173,7 +173,7 @@ public class AceptarCancelarEdicion
     *
     * @param padre Frame padre de esta ventana.<br>
     */
-   public AceptarCancelarEdicion( Frame padre )
+   public DialogoAceptarCancelar( Frame padre )
    {
       super( padre );
       inicializar(  );
@@ -188,8 +188,8 @@ public class AceptarCancelarEdicion
     * @param panelEditor Panel de edici�n que va dentro de la ventana.<br>
     * @param title Titulo para la ventana.<br>
     */
-   public AceptarCancelarEdicion( 
-      InterfaceEdicionDatos panelEditor,
+   public DialogoAceptarCancelar( 
+      InterfaceEdicionDatos<Tipo> panelEditor,
       String title )
    {
       inicializar(  );
@@ -209,8 +209,8 @@ public class AceptarCancelarEdicion
     * @param title Titulo para la ventana.<br>
     * @param posicion Posicion en pantalla.<br>
     */
-   public AceptarCancelarEdicion( 
-      InterfaceEdicionDatos panelEditor,
+   public DialogoAceptarCancelar( 
+      InterfaceEdicionDatos<Tipo> panelEditor,
       boolean modal,
       String title,
       Point posicion )
@@ -235,9 +235,9 @@ public class AceptarCancelarEdicion
     * @param title Titulo para la ventana.<br>
     * @param posicion Posicion de la ventana en pantalla.<br>
     */
-   public AceptarCancelarEdicion( 
+   public DialogoAceptarCancelar( 
       Dialog padre,
-      InterfaceEdicionDatos panelEditor,
+      InterfaceEdicionDatos<Tipo> panelEditor,
       boolean modal,
       String title,
       Point posicion )
@@ -263,9 +263,9 @@ public class AceptarCancelarEdicion
     * @param title Titulo de la ventana.<br>
     * @param posicion Posicion en pantalla.<br>
     */
-   public AceptarCancelarEdicion( 
+   public DialogoAceptarCancelar( 
       Frame padre,
-      InterfaceEdicionDatos panelEditor,
+      InterfaceEdicionDatos<Tipo> panelEditor,
       boolean modal,
       String title,
       Point posicion )
@@ -328,12 +328,12 @@ public class AceptarCancelarEdicion
    }
 
    /**
-    * M�todo a traves del que se recibe y guarda el componente. Invoca al
-    * m�todo inicializar.
+    * Metodo a traves del que se recibe y guarda el componente. Invoca al
+    * metodo inicializar.
     *
     * @param panelEditor El panel de edicion interno.<br>
     */
-   public void setComponenteInterno( InterfaceEdicionDatos panelEditor )
+   public void setComponenteInterno( InterfaceEdicionDatos<Tipo> panelEditor )
    {
       if( !( panelEditor instanceof Component ) )
       {
@@ -359,7 +359,7 @@ public class AceptarCancelarEdicion
     *
     * @return El editor interno.<br>
     */
-   public InterfaceEdicionDatos getComponenteInterno(  )
+   public InterfaceEdicionDatos<Tipo> getComponenteInterno(  )
    {
       return componenteInterno;
    }
@@ -370,7 +370,7 @@ public class AceptarCancelarEdicion
     *
     * @param elemento Un dato que entienda el editor interno.<br>
     */
-   public void setDato( Object elemento )
+   public void setDato( Tipo elemento )
    {
       if( componenteInterno == null )
       {
@@ -392,7 +392,7 @@ public class AceptarCancelarEdicion
     *
     * @return El dato recogido del editor interno.<br>
     */
-   public Object getDato( )
+   public Tipo getDato( )
    {
       if( componenteInterno == null )
       {
@@ -464,7 +464,7 @@ public class AceptarCancelarEdicion
     *
     * @param tratamientoError Clase que trata el error.
     */
-   public void setTratamientoError( InterfaceTratamientoError tratamientoError )
+   public void setTratamientoError( InterfaceTratamientoError<Tipo> tratamientoError )
    {
       this.tratamientoError = tratamientoError;
    }
@@ -474,13 +474,13 @@ public class AceptarCancelarEdicion
     *
     * @return La clase de tratamiento de error.
     */
-   public InterfaceTratamientoError getTratamientoError(  )
+   public InterfaceTratamientoError<Tipo> getTratamientoError(  )
    {
       return tratamientoError;
    }
 
    /**
-    * Devuelve una nueva ventana AceptarCancelarEdicion cuyo padre sea la
+    * Devuelve una nueva ventana DialogoAceptarCancelar cuyo padre sea la
     * ventana a la que pertenece el componente que se pasa.<br>
     * Busca la ventana padre del componente que se pasa. Si no lo hay,
     * devuelve una ventana de AceptarCancelar sin padre.<br>
@@ -489,21 +489,25 @@ public class AceptarCancelarEdicion
     *
     * @return Un AceptarCancelar hijo.
     */
-   public static AceptarCancelarEdicion dameNuevaInstancia( Component padre )
+   public static DialogoAceptarCancelar dameNuevaInstancia( Component padre )
    {
-      Window ventanaPadre = SwingUtilities.getWindowAncestor( padre );
+      Window ventanaPadre;
+      if (padre instanceof Window)
+          ventanaPadre=(Window)padre;
+      else
+          ventanaPadre = SwingUtilities.getWindowAncestor(padre);
 
       if( ventanaPadre instanceof Dialog )
       {
-         return new AceptarCancelarEdicion( (Dialog)ventanaPadre );
+         return new DialogoAceptarCancelar( (Dialog)ventanaPadre );
       }
 
       if( ventanaPadre instanceof Frame )
       {
-         return new AceptarCancelarEdicion( (Frame)ventanaPadre );
+         return new DialogoAceptarCancelar( (Frame)ventanaPadre );
       }
 
-      return new AceptarCancelarEdicion(  );
+      return new DialogoAceptarCancelar(  );
    }
 
    /**
@@ -511,7 +515,7 @@ public class AceptarCancelarEdicion
     * primero es un ActionListener para que se le avise y el segundo es el
     * componente de esta ventana al cual se quiere a?adir.
     *
-    * @param listener A�ade un listener a la acci�n de aceptar o de
+    * @param listener Anade un listener a la accion de aceptar o de
     *        cancelar.<br>
     * @param aceptarOCancelar Puede ser InterfaceAceptarCancelarEdicion.ACEPTAR
     *        o InterfaceAceptarCancelarEdicion.CANCELAR.<br>
@@ -535,19 +539,19 @@ public class AceptarCancelarEdicion
    }
 
    /**
-    * Proporciona el bot�n aceptar de la ventana.
+    * Proporciona el boton aceptar de la ventana.
     *
-    * @return El bot�n de aceptar.<br>
+    * @return El boton de aceptar.<br>
     */
-   public JButton dameBotonAceptar(  )
+   public JButton getBotonAceptar(  )
    {
       return this.JBuAceptar;
    }
 
    /**
-    * Proporciona el bot�n cancelar de la ventana.
+    * Proporciona el boton cancelar de la ventana.
     *
-    * @return El bot�n de cancelar.<br>
+    * @return El boton de cancelar.<br>
     */
    public JButton dameBotonCancelar(  )
    {
@@ -555,9 +559,9 @@ public class AceptarCancelarEdicion
    }
 
    /**
-    * Hace la ventana editable o no, seg�n el boolean. Las clases hijas har�n
+    * Hace la ventana editable o no, segun el boolean. Las clases hijas haran
     * que el operador no pueda modificar los datos de la ventana si el valor
-    * de este boolean es false. Por defecto las ventanas deber�n ser
+    * de este boolean es false. Por defecto las ventanas deberan ser
     * editables.
     *
     * @param editable Si debe ser o no editable.<br>
@@ -599,7 +603,7 @@ public class AceptarCancelarEdicion
    }
 
    /**
-    * Elimina todos los suscriptores de aceptar o de cancelar, seg�n el valor
+    * Elimina todos los suscriptores de aceptar o de cancelar, segun el valor
     * del segundo parametro.<br>
     *
     * @param aceptarOCancelar Puede ser InterfaceAceptarCancelarEdicion.ACEPTAR
@@ -622,9 +626,9 @@ public class AceptarCancelarEdicion
    }
 
    /**
-    * Verifica los datos escritos por el operador en la ventana de edici�n.
-    * Llama al m�todo validaDato() del editor interno y devuelve lo que
-    * devuelve dicho m�todo.
+    * Verifica los datos escritos por el operador en la ventana de edicion.
+    * Llama al metodo validaDato() del editor interno y devuelve lo que
+    * devuelve dicho metodo.
     *
     * @param error Se rellena con el error producido.<br>
     *
@@ -642,23 +646,23 @@ public class AceptarCancelarEdicion
     *
     * @param listaSuscriptores Lista de suscriptores
     */
-   protected void avisaSuscriptores( LinkedList listaSuscriptores )
+   protected void avisaSuscriptores( LinkedList<ActionListener> listaSuscriptores )
    {
       int i;
 
       for( i = 0;i < listaSuscriptores.size(  );i++ )
       {
-         ( (ActionListener)listaSuscriptores.get( i ) ).actionPerformed( null );
+         listaSuscriptores.get( i ).actionPerformed( null );
       }
    }
 
    /**
-    * Crea los botones de Aceptar y Cancelar. No coloca el panel de edici�n
+    * Crea los botones de Aceptar y Cancelar. No coloca el panel de edicion
     * interno.
     */
    protected void inicializar(  )
    {
-      // Si ya est� creado, no se hace nada.
+      // Si ya esta creado, no se hace nada.
       if( JBuAceptar != null )
       {
          return;
@@ -692,8 +696,8 @@ public class AceptarCancelarEdicion
       int resultado = JOptionPane.showConfirmDialog( 
             this,
             new JLabel( 
-               "<html>Se perder�n los datos modificados.<br>" +
-               "� Desea cancelar la edicion ?.</html>" ) );
+               "<html>Se perderán los datos modificados.<br>" +
+               "¿ Desea cancelar la edicion ?.</html>" ) );
 
       if( resultado != JOptionPane.YES_OPTION )
       {

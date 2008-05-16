@@ -1,7 +1,7 @@
 package com.chuidiang.editores.utilidades;
 
 /**
- * M�todos �tiles para tratamiento de cadenas de caracteres.<br>
+ * Metodos utiles para tratamiento de cadenas de caracteres.<br>
  *
  */
 public class CadenaCaracteresEditoresDeprecated
