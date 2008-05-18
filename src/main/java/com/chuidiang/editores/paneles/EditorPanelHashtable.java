@@ -28,12 +28,6 @@ public class EditorPanelHashtable extends EditorPanelGeneral<Hashtable<String,Ob
             return;
         }
 
-        if (!(elemento instanceof Hashtable)) {
-            log.warn("El elemento pasado no es Hashtable, se ignora");
-
-            return;
-        }
-
         // Vacia el editor
         this.borraContenidoDeTodosLosEditores();
 

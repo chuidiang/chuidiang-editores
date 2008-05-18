@@ -1,5 +1,7 @@
 Notas versión 0.2.0
 
+  * Panel editor para beans y dependencia con commons-beanutils
+  
   * Añadidos comentarios en el código y en javadoc.
   
   * Algunos test de JUnit.

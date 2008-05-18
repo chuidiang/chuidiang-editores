@@ -425,7 +425,7 @@ public abstract class EditorPanelGeneral<Tipo> extends JPanel implements
 
     /**
      * Metodo que recibe una clave, una etiqueta para un Label y un componente.
-     * A�ade la etiqueta y el componente a la ventana. A�ade la clave al
+     * Anade la etiqueta y el componente a la ventana. Anade la clave al
      * hashtable de Claves.
      * 
      * @param clave
@@ -629,7 +629,7 @@ public abstract class EditorPanelGeneral<Tipo> extends JPanel implements
     }
 
     /**
-     * Metodo que se llama cada vez que se a�ade un componente al panel para
+     * Metodo que se llama cada vez que se anade un componente al panel para
      * saber donde hay que colocar el siguiente.
      */
     protected void sumaColumna() {
@@ -645,7 +645,7 @@ public abstract class EditorPanelGeneral<Tipo> extends JPanel implements
      * Metodo
      */
     /**
-     * Metodo que se llama cada vez que se a�ade un componente al panel para
+     * Metodo que se llama cada vez que se anade un componente al panel para
      * saber donde hay que colocar el siguiente.
      */
     protected void sumaFila() {
